@@ -1,0 +1,67 @@
+{
+  "name": "DevPilot demo retrieval benchmark",
+  "version": 1,
+  "cutoff": 5,
+  "cases": [
+    {
+      "id": "auth-email-lookup",
+      "query": "Where does the application find accounts by email?",
+      "expected_file": "backend/auth.py",
+      "expected_symbol": "find_account"
+    },
+    {
+      "id": "auth-normalization",
+      "query": "How are email addresses normalized during account lookup?",
+      "expected_file": "backend/auth.py",
+      "expected_symbol": "find_account"
+    },
+    {
+      "id": "task-priority",
+      "query": "Where is task priority sorted and converted to a number?",
+      "expected_file": "backend/tasks.py",
+      "expected_symbol": "task_priority"
+    },
+    {
+      "id": "task-summary",
+      "query": "How does the application create a summary for a task?",
+      "expected_file": "backend/tasks.py",
+      "expected_symbol": "task_summary"
+    },
+    {
+      "id": "task-filter",
+      "query": "Where does the application list tasks for one user?",
+      "expected_file": "backend/tasks.py",
+      "expected_symbol": "list_tasks_for_user"
+    },
+    {
+      "id": "demo-smells",
+      "query": "Which demo code patterns should be flagged as maintainability smells?",
+      "expected_file": "backend/demo_smells.py",
+      "expected_symbol": ""
+    },
+    {
+      "id": "schema-users",
+      "query": "What columns are stored for users in the database schema?",
+      "expected_file": "database/schema.sql",
+      "expected_symbol": ""
+    },
+    {
+      "id": "schema-tasks",
+      "query": "What fields are used for tasks in the SQL schema?",
+      "expected_file": "database/schema.sql",
+      "expected_symbol": ""
+    },
+    {
+      "id": "task-tests",
+      "query": "Which tests cover task operations and expected behavior?",
+      "expected_file": "tests/test_tasks.py",
+      "expected_symbol": ""
+    },
+    {
+      "id": "dependencies",
+      "query": "What Python dependencies does the sample project use?",
+      "expected_file": "requirements.txt",
+      "expected_symbol": ""
+    }
+  ]
+}

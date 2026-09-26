@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1,
+    "title": "Email lookup fails when input contains whitespace",
+    "body": "A user whose saved email is alice@example.com cannot be found when the submitted address is ' Alice@Example.com '. Case should be ignored, and surrounding whitespace should be trimmed.",
+    "labels": ["bug", "authentication"],
+    "expected_root_cause": "find_account lowercases both values but does not strip surrounding whitespace before comparing them.",
+    "affected_file": "backend/auth.py",
+    "affected_symbol": "find_account",
+    "expected_behavior": "Email lookup matches case-insensitively after trimming surrounding whitespace."
+  }
+]

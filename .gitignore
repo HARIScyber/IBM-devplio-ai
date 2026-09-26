@@ -1,0 +1,26 @@
+# Python and generated runtime data
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.db
+*.sqlite
+*.sqlite3
+backend/data/
+backend/storage/*
+!backend/storage/.gitkeep
+
+# Frontend build and dependencies
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.npm-cache/
+
+# Tooling and OS files
+.DS_Store

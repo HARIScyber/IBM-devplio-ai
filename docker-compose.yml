@@ -1,0 +1,32 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: ./.env
+        required: false
+    environment:
+      STORAGE_DIR: /app/backend/storage
+      DATABASE_PATH: /app/data/devpilot.db
+    volumes:
+      - devpilot-data:/app/backend/storage
+      - devpilot-db:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=2)"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  devpilot-data:
+  devpilot-db:
